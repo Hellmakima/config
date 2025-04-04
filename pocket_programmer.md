@@ -33,6 +33,10 @@ Start MongoDB server:
 ```bash
 mongod --dbpath=/data/db
 ```
+or
+```
+mongod
+```
 
 Connect to MongoDB:
 ```bash
