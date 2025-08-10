@@ -1,79 +1,113 @@
-# Android Development Setup Guide
+# Pocket Programmer
 
-Turn your Android device into a full-fledged development environment for MERN stack projects (MongoDB, Express, React, Node.js).
+**How to turn a basic Android phone into a dev powerhouse**
 
-## 📋 Table of Contents
-1. [Essential Apps](#-essential-apps)
-2. [MongoDB Setup](#-mongodb-setup)
-3. [Node.js Setup](#-nodejs-setup)
-4. [React + Vite Setup](#-react--vite-setup)
-5. [Frontend-Backend Connection](#-frontend-backend-connection)
-6. [Android Debugging](#-android-debugging)
-7. [Acode Server Setup](#-acode-server-setup)
-8. [Alternative Tools](#-alternative-tools)
+## Essential Apps
 
-## 📱 Essential Apps
-| App | Purpose | Play Store Link |
-|------|---------|-----------------|
-| Termux | Terminal emulator | [Play Store](https://play.google.com/store/apps/details?id=com.termux) | [F-Droid](https://termux.com/fdroid) |
-| Acode | Code editor/IDE | [Download](https://play.google.com/store/apps/details?id=com.foxdebug.acodefree) |
-| API Tester | Postman alternative | [Download](https://play.google.com/store/apps/details?id=apitester.apitester) |
-| F12 | Web inspector | [Download](https://play.google.com/store/apps/details?id=com.flowplanner.f12) |
+- **Terminal**
 
-## 🍃 MongoDB Setup
-### Installation
+  - **Termux**
+
+    - Huge OSS community
+    - Get from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [GitHub](https://github.com/termux/termux-app/releases)
+    - more advantages if phone is rooted
+    - Use `termux-setup-storage` to access device storage
+    - For better performance, consider using a Linux chroot environment via [Andronix](https://andronix.app/)
+
+  - **Terminus** – simple, great for SSH
+
+- **Web/PHP Server**
+
+  - **KSWEB** – PHP + MySQL (paid features 🏴‍☠️)
+
+- **IDE**
+
+  - **Acode** – good IDE, connects to Termux shell
+
+    1. Install `acodex-server` plugin in Termux
+    2. Install same plugin in Acode
+    3. Run server in Termux
+
+    ```bash
+    pkg install openssh -y
+    sshd
+    ```
+
+    4. Use `Ctrl + K` in Acode for terminal
+
+  - Alternatively, use `sshd` to run a server and access it via `ssh` on VSCode on your PC
+
+- **REST Client**
+
+  - **API Tester**
+  - Try other alternatives based on your needs
+
+- **Browser**
+
+  - **F12** – Inspect web pages
+  - **Via Browser** – super lightweight
+
+- **File Manager**
+
+  - **X-plore** – has wifi file sharing, ssh, ftp, and much more (paid features 🏴‍☠️)
+
+- **Keyboard**
+
+  - **Unexpected Keyboard** – OSS, highly customizable
+  - **Futo** – fully offline, gboard-like keyboard
+
+- **PC Tools**
+
+  - **adb** – Android Debug Bridge (connect to Android devices)
+  - **scrcpy** – Android screen mirroring (screen mirroring)
+  - **UAD** – Universal Android Debloater (remove bloatware)
+
+- **For more `new OS` experience**
+  - try [Andronix](https://andronix.app/)
+  - [Tutorial](https://youtu.be/jvuufPWKF3k)
+
+---
+
+## MongoDB on Termux
+
+- [Install MongoDB on Android Guide](https://micropreneur.life/how-to-install-mongodb-on-android-run-it-natively-no-mongodb-account-needed/)
+
 ```bash
 pkg update && pkg upgrade
 pkg install tur-repo -y
 pkg install mongodb -y
+mongod       # start server
+mongo        # connect
 ```
 
-### Usage
-Start MongoDB server:
-```bash
-mongod --dbpath=/data/db
-```
-or
-```
-mongod
-```
+(SQL can be installed similarly)
 
-Connect to MongoDB:
-```bash
-mongo
-```
+---
 
-## ⚡ Node.js Setup
-1. Install Node.js:
-```bash
-pkg install nodejs -y
-```
+## Node.js + React Dev on Android
 
-2. Verify installation:
-```bash
-node --version
-npm --version
-```
+Follow Node setup guide: [How to Build React Applications Using Android Phone.](https://dev.to/andrewezeani/how-to-build-react-applications-using-an-android-phone-a-step-by-step-guide-4amh)
 
-## ⚛️ React + Vite Setup
-1. Create new project:
+**Vite React Setup**:
+
 ```bash
 npm create vite@latest project-name -- --template react
 ```
 
-2. Configure `vite.config.js`:
-```javascript
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+**vite.config.js**:
+
+```js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // Access from other devices
+    host: "0.0.0.0",
     port: 3000,
     proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
+      "/api": {
+        target: "http://localhost:3001",
         changeOrigin: true,
         secure: false,
       },
@@ -82,99 +116,77 @@ export default defineConfig({
 });
 ```
 
-## 🔗 Frontend-Backend Connection
-1. Install router:
-```bash
-npm install react-router-dom
-```
+- Connect both devices to same LAN
+- Access `<phone_ip>:3000` from PC or phone
 
-2. Connect both devices to same network
-3. Access from PC: `http://<phone-ip>:3000`
+---
 
-## 🔧 Android Debugging
-### **Why This is Powerful**
-Transform your Android into a portable workstation! Scrcpy mirrors your phone screen to any computer, letting you:
+## Control Android from PC
+
 - **Code anywhere** → Use your PC's keyboard/mouse while running apps on your phone
 - **Big screen advantage** → Avoid squinting at small phone displays during development
 - **Zero setup delays** → Connect to any Windows/Mac/Linux PC in seconds
 - **Battery-friendly** → Phone acts as compute device while PC handles display
 
-### **Setup Guide**
-1. **Enable USB Debugging**:
-   - Go to `Settings > About Phone > Build Number` (tap 7 times to unlock Developer Options)
-   - Enable **USB Debugging** and **Wireless Debugging**
+**Windows**
 
-2. **Connection Methods**:
-   - **USB Cable** (Recommended for stability):
-     ```bash
-     scrcpy --hid-keyboard --shortcut-mod=lalt
-     ```
-   - **Wireless** (No cables needed):
-     ```bash
-     adb tcpip 5555  # First connect via USB
-     adb connect YOUR_PHONE_IP:5555
-     scrcpy
-     ```
+- Use [Scrcpy](https://github.com/Genymobile/scrcpy/releases) to use your PC to control your phone.
+- I use a custom script for scrcpy along with [adb](https://developer.android.com/studio/command-line/adb) to set the screen density and size to 768x1360 for a better experience.
+- scrcpy comes with a copy of adb, so you don't need to install it separately.
 
-3. **Optimize Display** (Optional):
-   ```bash
-   # Higher resolution for coding:
-   adb shell wm size 1280x720  
-   # Revert when done:
-   adb shell wm size reset
-   ```
+_example script:_
 
-4. **My Setup**:
-Create `run.bat`:
-     ```bat
-     @echo off
-     adb shell wm density 200
-     adb shell wm size 768x1366
-     scrcpy.exe --keyboard=uhid --shortcut-mod=lalt %*
-     adb shell wm density 400
-     adb shell wm size reset
-     ```
+```bat
+@echo off
+setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
-### **Workflow Example**
-1. Connect phone to library PC via USB  
-2. Run `scrcpy` → Your phone screen appears on PC  
-3. Use Termux+VSCode on phone, but type comfortably on PC keyboard  
-4. Test React apps directly on your Android while coding  
+rem Get original density and size
+for /f "tokens=3" %%a in ('adb shell wm density') do set original_density=%%a
+for /f "tokens=3" %%a in ('adb shell wm size') do set original_size=%%a
 
-### **Pro Tips**
-- **Keyboard Shortcuts**:
-  - `Alt+O` → Power button  
-  - `Alt+H` → Home button  
-- **File Transfer**: Drag-and-drop files between PC and phone while connected  
-- **Multi-Device**: Run multiple instances for testing different screen sizes  
+rem Set temporary density and size
+adb shell wm density 200
+adb shell wm size 768x1360
 
-**Perfect for**: Coffee shop coding, travel development, or when you need a bigger screen instantly!  
+rem Launch scrcpy
+scrcpy --keyboard=uhid --shortcut-mod=lalt %*
 
----
+rem Restore original values
+adb shell wm density !original_density!
+adb shell wm size !original_size!
+rem or adb shell wm size reset
 
-## 💻 Acode Server Setup
-1. Install plugin in Acode
-2. In Termux:
-```bash
-pkg install openssh -y
-sshd
+endlocal
 ```
-3. Connect via Acode's terminal (Ctrl+K)
 
-## 🔄 Alternative Tools
-| Category | Primary | Alternatives |
-|----------|---------|--------------|
-| Terminal | Termux | [Termius](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client), [NeoTerm](https://github.com/NeoTerm/NeoTerm) |
-| Code Editor | Acode | [Dcoder](https://play.google.com/store/apps/details?id=com.paprbit.dcoder), [Spck Editor](https://play.google.com/store/apps/details?id=io.spck) |
-| API Client | API Tester | [Postwoman](https://postwoman.io/), [Insomnia](https://insomnia.rest/) |
-| Web Inspector | F12 | [Eruda](https://github.com/liriliri/eruda) (Browser console) |
+**Linux**:
 
-## 💡 Pro Tips
-- Use `termux-setup-storage` to access device storage
-- For better performance, consider using a Linux chroot environment via [Andronix](https://andronix.app/)
-- Set up Git in Termux:
+```bash
+apt install scrcpy
+scrcpy --hid-keyboard --shortcut-mod=lalt
+```
+
+**scrcpy shortcuts**:
+
+- **Keyboard Shortcuts**:
+  _(Alt is the shortcut modifier key)_
+  - `Alt+P` → Power button
+  - `Alt+H` → Home button
+  - `Alt+F` → Fullscreen
+  - `Alt+N` → Notification
+  - `2 Finger tap` → Back button
+  - `Alt+up/down` → Volume up/down
+
+_Prefferably use USB cable for low latency._
+**Connection Methods**:
+
+- **USB Cable** (Recommended for stability):
   ```bash
-  pkg install git -y
-  git config --global user.name "Your Name"
-  git config --global user.email "your@email.com"
+  scrcpy --hid-keyboard --shortcut-mod=lalt
+  ```
+- **Wireless** (No cables needed):
+  ```bash
+  adb tcpip 5555  # First connect via USB
+  adb connect YOUR_PHONE_IP:5555
+  scrcpy
   ```
