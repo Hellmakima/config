@@ -1,0 +1,21 @@
+[
+	{ "keys": ["ctrl+enter"], "command": "build" },
+	{ "keys": ["ctrl+keypad_enter"], "command": "build" },
+	{ "keys": ["shift+enter"], "command": "build" },
+	{ "keys": ["shift+keypad_enter"], "command": "build" },
+	{ "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+	{ "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
+	// {
+	//     "keys": ["alt+r"],
+	//     "command": "exec",
+	//     "args": {
+	//         "cmd": ["powershell", "-NoExit", "-Command", "uvicorn main:app --reload --port 5000"]
+	//     },
+	//     "working_dir": "${file_path}"
+	// }
+	{ "keys": ["ctrl+;"], "command": "cancel_build" },
+    // { "keys": ["ctrl+shift+b"], "command": "focus_side_bar" },
+    // { "keys": ["keypad_plus"], "command": "left_delete" },
+    { "keys": ["keypad_plus"],"command": "rest_request"}
+]

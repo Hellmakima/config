@@ -1,0 +1,4 @@
+LSP
+LSP-pyright
+Package Control
+REST Client
