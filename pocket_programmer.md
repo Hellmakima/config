@@ -123,10 +123,10 @@ export default defineConfig({
 
 ## Control Android from PC
 
-- **Code anywhere** → Use your PC's keyboard/mouse while running apps on your phone
-- **Big screen advantage** → Avoid squinting at small phone displays during development
-- **Zero setup delays** → Connect to any Windows/Mac/Linux PC in seconds
-- **Battery-friendly** → Phone acts as compute device while PC handles display
+- **Code anywhere** -> Use your PC's keyboard/mouse while running apps on your phone
+- **Big screen advantage** -> Avoid squinting at small phone displays during development
+- **Zero setup delays** -> Connect to any Windows/Mac/Linux PC in seconds
+- **Battery-friendly** -> Phone acts as compute device while PC handles display
 
 **Windows**
 
@@ -170,12 +170,15 @@ scrcpy --hid-keyboard --shortcut-mod=lalt
 
 - **Keyboard Shortcuts**:
   _(Alt is the shortcut modifier key)_
-  - `Alt+P` → Power button
-  - `Alt+H` → Home button
-  - `Alt+F` → Fullscreen
-  - `Alt+N` → Notification
-  - `2 Finger tap` → Back button
-  - `Alt+up/down` → Volume up/down
+  - `Alt+P` -> Power button
+  - `Alt+H` -> Home button
+  - `Alt+F` -> Fullscreen
+  - `Alt+N` -> Notification
+  - `2 Finger tap` -> Back button
+  - `Alt+up/down` -> Volume up/down
+  - `Alt+o` -> Turn off screen
+- **Termux**:
+  - `Ctrl+Shift+N` next session
 
 _Prefferably use USB cable for low latency._
 **Connection Methods**:
