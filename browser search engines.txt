@@ -1,9 +1,0 @@
-d https://drive.google.com/drive/u/0/search?q=%s
-gugu {google:baseURL}search?q=%s
-yt https://www.youtube.com/results?search_query=%s
-r https://www.google.com/search?q=reddit+%s
-tr https://translate.google.co.in/?sl=auto&tl=en&text=%s&op=translate
-s edge://settings/searchEngines?search=%s
-q https://quran.com/4?startingVerse=%s
-map https://www.google.com/maps/place/%s
-i https://www.google.com/search?&udm=2&q=%s
