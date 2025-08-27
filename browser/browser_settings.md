@@ -9,6 +9,15 @@
 * **Custom New Tab**
   *Opens a specific URL whenever you open a new tab.*
 
+### Work related
+
+* **Urban VPN**
+  *USA VPN, easy access TikTok.*
+
+* **Cookie-Editor**
+
+  *Simple yet powerful Cookie Editor that allow you to quickly create, edit and delete cookies without leaving your tab.*
+
 ---
 
 ## Custom Search Engines

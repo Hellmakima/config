@@ -17,7 +17,6 @@ youtube.com##.annotation.annotation-type-custom.iv-branding
 # suggested cards
 # youtube.com##.ytp-button.ytp-cards-button
 
-
 # quran scroll
 quran.com##+js(set-constant, window.scrollTo, noopFunc)
 quran.com##+js(set-constant, Element.prototype.scrollIntoView, noopFunc)
@@ -37,3 +36,11 @@ www.youtube.com###logo
 
 ! 31 Jul 2025 https://stackoverflow.com
 stackoverflow.com##.vertical-align-content.ot-wo-title.ot-bottom-left.otFloatingRoundedCorner
+
+! Aug 19, 2025 https://chatgpt.com
+chatgpt.com##.pt-2.gap-3\.5.flex-col.flex.mb-2
+
+! Jun 11, 2025 https://meet.google.com
+# "are you speaking?" popup
+meet.google.com##.bifLQe
+meet.google.com##.YajdLd.nulMpf.Dx8PDb.Ssc6Id
