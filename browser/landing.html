@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Home</title>
   <style>
     :root {
@@ -59,51 +60,77 @@
       margin-bottom: 28px;
     }
 
+    /* Search section */
     .search {
       display: flex;
       gap: 10px;
       align-items: center;
-      background: var(--card);
+      background: var(--card, #0e1420);
       padding: 10px;
       border-radius: 12px;
       box-shadow: 0 0 0 1px #0e1420, 0 6px 24px rgba(0, 0, 0, 0.35);
     }
 
+    /* Text input */
     .search input[type="text"] {
       flex: 1;
       background: #0a111b;
-      color: var(--text);
+      color: var(--text, #e2e8f0);
       border: none;
       border-radius: 10px;
       padding: 12px 14px;
       outline: none;
+      font-size: 1rem;
+      transition: box-shadow 0.25s ease;
     }
 
     .search input[type="text"]:focus {
-      border-color: var(--ring);
       box-shadow: 0 0 0 3px rgba(79, 156, 255, 0.18);
     }
 
+    /* Dropdown */
+    .search select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: #0a111b;
+      color: var(--text, #e2e8f0);
+      border: none;
+      border-radius: 10px;
+      padding: 12px 40px 12px 14px;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      transition: box-shadow 0.25s ease;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e2e8f0' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 20px;
+    }
+
+    .search select:focus {
+      box-shadow: 0 0 0 3px rgba(79, 156, 255, 0.18);
+    }
+
+    /* Button */
     .search-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.25rem;
       background-color: #092d52;
-      /* DodgerBlue */
       color: white;
       font-size: 1rem;
       font-weight: 600;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.1s ease;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .search-btn:hover {
       background-color: #0e4881;
-      /* Slightly darker blue */
     }
 
     .search-btn:active {
@@ -189,14 +216,33 @@
           </g>
         </switch>
       </svg>
-      <form class="search" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
-        <input type="text" name="q" placeholder="Search Google..." aria-label="Google search" />
+      <br><br>
+      <form class="search" id="searchForm" method="get" target="_self" rel="noopener">
+        <input type="text" id="query" name="q" placeholder="Search..." aria-label="Search" />
+        <select id="engine" name="engine" aria-label="Search Engine">
+          <option value="https://www.google.com/search?q=">Google</option>
+          <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+          <option value="https://www.bing.com/search?q=">Bing</option>
+          <option value="https://yandex.com/search/?text=">Yandex</option>
+        </select>
         <button class="search-btn" type="submit">Search</button>
       </form>
+      <script>
+        const form = document.getElementById("searchForm");
+        const engine = document.getElementById("engine");
+        const query = document.getElementById("query");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!query.value) return;
+          const action = engine.value;
+          window.open(action + encodeURIComponent(query.value), "_self");
+        });
+      </script>
     </header>
 
     <section class="grid">
-      <a class="card" href="https://chatgpt.com/?temporary-chat=true" target="_blank" rel="noopener">
+      <a class="card" href="https://chatgpt.com/?temporary-chat=true" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg fill="#000000" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
             <title>OpenAI icon</title>
@@ -210,7 +256,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener">
+      <a class="card" href="https://mail.google.com/mail/u/0/#inbox" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
             <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
@@ -229,7 +275,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://drive.google.com" target="_blank" rel="noopener">
+      <a class="card" href="https://drive.google.com" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
             <path fill="#1e88e5"
@@ -255,7 +301,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://gemini.google.com" target="_blank" rel="noopener">
+      <a class="card" href="https://gemini.google.com" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
             <path fill="#2196f3"
@@ -272,7 +318,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://chat.deepseek.com" target="_blank" rel="noopener">
+      <a class="card" href="https://chat.deepseek.com" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
             <path fill="#536dfe"
@@ -286,7 +332,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://sprints.zoho.in/workspace/tcognition#P2/board/SP15" target="_blank" rel="noopener">
+      <a class="card" href="https://sprints.zoho.in/workspace/tcognition#P2/board/SP15" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg class="productlogo" viewBox="0 0 1024 1024" data-zsqa-id="image">
             <g class="st0">
@@ -312,7 +358,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://www.instagram.com" target="_blank" rel="noopener">
+      <a class="card" href="https://www.instagram.com" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
             <!-- background -->
@@ -351,7 +397,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://www.reddit.com/r/OnePieceSpoilers/" target="_blank" rel="noopener">
+      <a class="card" href="https://www.reddit.com/r/OnePieceSpoilers/" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 30 30">
             <path
@@ -446,7 +492,7 @@
       </a>
 
       <a class="card" href="https://www.youtube.com/watch?v=W56bEvyXaVM&list=PLILZM7Z8mbfBYd02P9jVbgkW28Si122Ph"
-        target="_blank" rel="noopener">
+        target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 -3 20 20">
             <g id="Page-1" stroke="none" stroke-width="1" fill="red" fill-rule="evenodd">
@@ -468,7 +514,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://github.com/hellmakima/instagram" target="_blank" rel="noopener">
+      <a class="card" href="https://github.com/hellmakima/instagram" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg aria-hidden="true" viewBox="0 0 24 24" version="1.1" data-view-component="true"
             class="octicon octicon-mark-github v-align-middle">
@@ -482,7 +528,7 @@
           <span class="sub">GitHub</span>
       </a>
 
-      <a class="card" href="file:///D:/config/MD.html" target="_blank" rel="noopener">
+      <a class="card" href="file:///D:/config/MD.html" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="black">
             <path
@@ -495,7 +541,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://www.youtube.com/feed/subscriptions" target="_blank" rel="noopener">
+      <a class="card" href="https://www.youtube.com/feed/subscriptions" target="_self" rel="noopener">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 -3 20 20">
             <g id="Page-1" stroke="none" stroke-width="1" fill="red" fill-rule="evenodd">
@@ -517,7 +563,7 @@
         </span>
       </a>
 
-      <a class="card" href="https://hianimez.is/" target="_blank" rel="noopener">
+      <a class="card" href="https://hianimez.is/" target="_self" rel="noopener">
         <!-- https://hianime.tv/ list of hianime websites -->
         <span class="icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -539,17 +585,83 @@
           <span class="sub">Anime</span>
         </span>
       </a>
-    </section>
 
-    <footer id="footer"></footer>
+      <a class="card" href="https://temp-mail.org/en/" target="_self" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
+            <path fill="#008000" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
+            <path fill="#008000" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path>
+            <polygon fill="#008000" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon>
+            <path fill="#008000"
+              d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path>
+            <path fill="#008000"
+              d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z">
+            </path>
+          </svg>
+        </span>
+        <span class="meta">
+          <span class="label">Temp Mail</span>
+          <span class="sub">temp-mail.org</span>
+        </span>
+      </a>
+
+      <a class="card" href="https://fmhy.net/" target="_self" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Luffy-style straw hat">
+            <defs>
+              <linearGradient id="brimShade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#a6782d" />
+                <stop offset="0.5" stop-color="#e9c35b" />
+                <stop offset="1" stop-color="#a6782d" />
+              </linearGradient>
+              <linearGradient id="crownShade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e9c35b" />
+                <stop offset="1" stop-color="#d1a943" />
+              </linearGradient>
+              <linearGradient id="bandGloss" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff4a4a" />
+                <stop offset="0.6" stop-color="#d61f1f" />
+                <stop offset="1" stop-color="#a41414" />
+              </linearGradient>
+            </defs>
+
+            <ellipse cx="160" cy="152" rx="110" ry="12" fill="#000" opacity="0.18" />
+            <ellipse cx="160" cy="120" rx="135" ry="34" fill="url(#brimShade)" stroke="#8f6e24" stroke-width="3" />
+            <path d="M65,115
+                       C65,-10 255,-10 255,115
+                       Q255,135 160,138
+                       Q65,135 65,115Z" fill="url(#crownShade)" stroke="#8f6e24" stroke-width="3" />
+            <path d="M65,100
+                       Q160,135 253,100
+                       L255,123
+                       Q160,155 65,123 Z" fill="url(#bandGloss)" stroke="#7b0f0f" stroke-width="2" />
+          </svg>
+        </span>
+        <span class="meta">
+          <span class="label">FMHY</span>
+          <span class="sub">fmhy.net</span>
+        </span>
+      </a>
+
   </main>
+  </section>
+
+  <footer id="footer"></footer>
 
   <script>
     function goToAyah() {
-      let surah = prompt("Enter Surah number:");
+      let lastSurah = localStorage.getItem("lastSurah") || "";
+      let surah = prompt("Enter Surah number:", lastSurah);
       if (!surah) return;
-      let ayah = prompt("Enter Verse number:");
+
+      let lastAyah = localStorage.getItem("lastAyah") || "";
+      let ayah = prompt("Enter Verse number:", lastAyah);
       if (!ayah) return;
+
+      localStorage.setItem("lastSurah", surah);
+      localStorage.setItem("lastAyah", ayah);
+
       window.open(`https://quran.com/${surah}?startingVerse=${ayah}`);
     }
 
@@ -590,6 +702,14 @@
 
     document.getElementById("footer").textContent =
       messages[Math.floor(Math.random() * messages.length)];
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "/") {
+        if (document.activeElement === document.getElementById("query")) return;
+        document.getElementById("query").focus();
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 
