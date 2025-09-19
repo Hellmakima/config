@@ -3,17 +3,10 @@
   "name": "YouTube Speed Control",
   "version": "1.0",
   "description": "Adjust YouTube video playback speed with keyboard shortcuts.",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"],
-      "run_at": "document_end"
-    }
-  ],
   "commands": {
     "increase-speed": {
       "description": "Increase playback speed by 0.25"
@@ -21,5 +14,12 @@
     "decrease-speed": {
       "description": "Decrease playback speed by 0.25"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["load.js"],
+      "run_at": "document_idle"
+    }
+  ]
 }
