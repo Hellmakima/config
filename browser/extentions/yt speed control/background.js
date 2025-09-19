@@ -11,6 +11,7 @@ chrome.commands.onCommand.addListener((command) => {
               let newRate = vid.playbackRate + delta;
               newRate = Math.min(4, Math.max(0.25, newRate));
               vid.playbackRate = newRate;
+              chrome.storage.local.set({ ytSpeed: newRate });
               console.log("Playback speed:", newRate);
             }
           },
