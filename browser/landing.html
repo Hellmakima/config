@@ -662,7 +662,7 @@
       localStorage.setItem("lastSurah", surah);
       localStorage.setItem("lastAyah", ayah);
 
-      window.open(`https://quran.com/${surah}?startingVerse=${ayah}`);
+      location.href = `https://quran.com/${surah}?startingVerse=${ayah}`;
     }
 
     const messages = [
