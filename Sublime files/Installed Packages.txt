@@ -1,4 +1,3 @@
-LSP
-LSP-pyright
+JsPrettier
 Package Control
 REST Client

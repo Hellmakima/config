@@ -293,11 +293,11 @@
             const mermaidProcessed = markdownText.replace(/```mermaid\s*([\s\S]*?)```/g, (_, code) => {
                 // remove empty lines
                 let cleanedCode = code.split('\n')
-                                    .filter(line => 
-                                        line.trim() !== ''          // remove empty lines
-                                        // && !/activate/i.test(line)       // remove lines with 'activate'
-                                    )
-                                    .join('\n');
+                    .filter(line =>
+                        line.trim() !== ''          // remove empty lines
+                        // && !/activate/i.test(line)       // remove lines with 'activate'
+                    )
+                    .join('\n');
                 cleanedCode = cleanedCode.replace(/;/g, ',');
 
                 try {

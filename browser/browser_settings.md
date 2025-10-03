@@ -1,22 +1,22 @@
 ## Browser Extensions
 
-* **uBlock Origin**
-  *Ad blocker to improve page speed and privacy.*
+- **uBlock Origin**
+  _Ad blocker to improve page speed and privacy._
 
-* **Unhook – Remove YouTube Recommended & Shorts**
-  *Removes distractions from YouTube (like home feed, shorts, comments, etc.).*
+- **Unhook – Remove YouTube Recommended & Shorts**
+  _Removes distractions from YouTube (like home feed, shorts, comments, etc.)._
 
-* **Custom New Tab**
-  *Opens a specific URL whenever you open a new tab.*
+- **Custom New Tab**
+  _Opens a specific URL whenever you open a new tab._
 
 ### Work related
 
-* **Urban VPN**
-  *USA VPN, easy access TikTok.*
+- **Urban VPN**
+  _USA VPN, easy access TikTok._
 
-* **Cookie-Editor**
+- **Cookie-Editor**
 
-  *Simple yet powerful Cookie Editor that allow you to quickly create, edit and delete cookies without leaving your tab.*
+  _Simple yet powerful Cookie Editor that allow you to quickly create, edit and delete cookies without leaving your tab._
 
 ---
 
@@ -25,7 +25,7 @@
 | Shortcut | Description                               | URL Format                                                           |
 | -------- | ----------------------------------------- | -------------------------------------------------------------------- |
 | `d`      | Google Drive Search                       | `https://drive.google.com/drive/u/0/search?q=%s`                     |
-| `gugu`   | Google Search                             | `{google:baseURL}search?q=%s`                                        |
+| `gugu`   | Google Search (Default search engine)     | `{google:baseURL}search?q=%s`                                        |
 | `yt`     | YouTube Search                            | `https://www.youtube.com/results?search_query=%s`                    |
 | `r`      | Reddit Search via Google                  | `https://www.google.com/search?q=reddit+%s`                          |
 | `tr`     | Google Translate (auto-detect to English) | `https://translate.google.co.in/?sl=auto&tl=en&text=%s&op=translate` |
