@@ -8,7 +8,7 @@ function prompt {
     
     # Set green color for the path
     Write-Host "$homeRelative" -NoNewline -ForegroundColor Green
-    Write-Host "$" -NoNewline
+    Write-Host " $" -NoNewline
     return " "
 }
 

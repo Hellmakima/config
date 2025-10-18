@@ -52,15 +52,17 @@ meet.google.com##.YajdLd.nulMpf.Dx8PDb.Ssc6Id
 www.google.com##.C6AK7c.XVMlrc > .mXwfNd
 
 
-! Aug 19, 2025 https://chatgpt.com
-chatgpt.com##.pt-2.gap-3\.5.flex-col.flex.mb-2
 ! GPT conv witdth
 chatgpt.com##.max-w-\(--thread-content-max-width\):style(max-width: none !important;)
 chatgpt.com##div.flex.flex-col.text-sm.thread-xl\:pt-header-height.pb-25:style(padding-bottom: 0 !important;)
-! 25 Sept 2025 https://chatgpt.com
-chatgpt.com##.rtl\:translate-x-1\/2.ltr\:-translate-x-1\/2.start-1\/2.absolute > .dark\:hover\:bg-\[\#414071\].dark\:text-\[\#DCDBF6\].dark\:bg-\[\#373669\].hover\:bg-\[\#E4E4F6\].text-\[\#5D5BD0\].bg-\[\#F1F1FB\].font-medium.text-sm.pe-3.ps-2\.5.py-2.rounded-full.gap-1.items-center.flex
-# warrning
-chatgpt.com##.md\:px-\[60px\].text-xs.text-center.p-2.justify-center.items-center.w-full.min-h-8.flex.mt-auto.relative.text-token-text-secondary
+
 # model selector
 chatgpt.com###page-header > div.items-center.flex > .focus-visible\:outline-none.whitespace-nowrap.font-normal.focus-visible\:bg-token-surface-hover.hover\:bg-token-surface-hover.text-lg.px-2\.5.touch\:min-h-10.min-h-9.rounded-lg.gap-1.items-center.justify-center.cursor-pointer.flex.group
+# warrning
+chatgpt.com##.md\:px-\[60px\].text-xs.text-center.p-2.justify-center.items-center.w-full.min-h-8.flex.mt-auto.relative.text-token-text-secondary
 
+! Remove max-width on Gemini chat container
+gemini.google.com/app##.conversation-container:style(max-width: none !important; width: 100% !important; margin: 0 !important;)
+
+! Oct 17, 2025 https://meet.google.com unwanted pfp
+||lh3.googleusercontent.com/a/ACg8ocK5Il5RetTBsktbIAor_rvLWju5dKUN-8EleSpNWO9pZQggcn5s=s200-p-k-no-mo$image
