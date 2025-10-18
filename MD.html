@@ -310,7 +310,17 @@
                 }
             });
 
-            const htmlContent = marked.parse(mermaidProcessed);
+            // Remove empty lines inside <html>...</html> blocks
+            const htmlCleaned = mermaidProcessed.replace(/<html>([\s\S]*?)<\/html>/gi, (_, htmlBlock) => {
+                const cleaned = htmlBlock
+                    .split(/\r?\n/)
+                    .filter(line => line.trim() !== '')
+                    .join('\n');
+                return `<html>\n${cleaned}\n</html>`;
+            });
+
+            // Render markdown
+            const htmlContent = marked.parse(htmlCleaned);
             document.getElementById('content').innerHTML = htmlContent;
 
             // Apply syntax highlighting
