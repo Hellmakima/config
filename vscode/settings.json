@@ -1,0 +1,42 @@
+{
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "chat.mcp.gallery.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.maxComputationTime": 0,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/__init__2.py": true
+  },
+  "git.enableSmartCommit": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "window.commandCenter": false,
+  "jupyter.askForKernelRestart": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "security.workspace.trust.untrustedFiles": "open",
+  "supermaven.allowGitignore": true,
+  "supermaven.enable": { "*": true },
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "window.customTitleBarVisibility": "windowed",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.activityBar.location": "hidden",
+  "python.createEnvironment.trigger": "off",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.editor.empty.hint": "hidden",
+  "emmet.includeLanguages": { "javascript": "" },
+  "workbench.panel.showLabels": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.tree.enableStickyScroll": false,
+  "remote.SSH.remotePlatform": {
+    "gcp-test-2": "linux",
+    "72.60.69.239": "linux"
+  }
+}

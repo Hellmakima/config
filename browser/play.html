@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Local MP3 Queue Player</title>
+  <title>MP3</title>
   <!-- Tailwind CDN (playground) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='90' font-size='90'>🎧</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-6">
@@ -310,6 +311,19 @@
       nowPlaying.textContent = 'No track loaded';
       renderPlaylist();
       folderInput.value = '';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!audio.src) return;
+
+      switch(e.key) {
+        case 'ArrowRight':
+          audio.currentTime = Math.min(audio.currentTime + 5, audio.duration || audio.currentTime + 5);
+          break;
+        case 'ArrowLeft':
+          audio.currentTime = Math.max(audio.currentTime - 5, 0);
+          break;
+      }
     });
 
     // helper: drag and drop files onto playlist
