@@ -489,11 +489,11 @@
       });
 
       audio.addEventListener("ended", () => {
-        if (!autoplayNext.checked) {
-          isPlaying = false;
-          playBtn.textContent = "Play";
-          return;
-        }
+        // if (!autoplayNext.checked) {
+        //   isPlaying = false;
+        //   playBtn.textContent = "Play";
+        //   return;
+        // }
         if (queue.length === 0) return;
         let idx = currentIndex + 1;
         if (idx >= queue.length) {
@@ -605,3 +605,4 @@
     </script>
   </body>
 </html>
+
