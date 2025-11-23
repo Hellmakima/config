@@ -196,6 +196,16 @@
         opacity: 0.8;
         margin-bottom: 4px;
       }
+      /* Visualizer canvas */
+      #visualizer {
+        width: 100%;
+        height: 120px;
+        border-radius: 6px;
+        display: block;
+        margin-top: 12px;
+        background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.02));
+        box-shadow: 0 0 20px rgba(0,255,255,0.06) inset;
+      }
     </style>
   </head>
 
@@ -272,6 +282,10 @@
             </div>
           </div>
 
+          <!-- VISUALIZER -->
+          <canvas id="visualizer" width="800" height="120"></canvas>
+
+
           <!-- <div class="mt-4 text-xs opacity-80">
             <label class="inline-flex items-center gap-2">
               <input id="autoplayNext" type="checkbox" checked />
@@ -324,6 +338,100 @@
 
       let audio = new Audio();
       audio.preload = "metadata";
+
+      // Visualizer variables
+      let audioCtx = null;
+      let sourceNode = null;
+      let analyser = null;
+      let dataArray = null;
+      let bufferLength = 0;
+      let canvas = null;
+      let canvasCtx = null;
+      let animationId = null;
+
+      function initVisualizer() {
+        canvas = document.getElementById("visualizer");
+        if (!canvas) return;
+        canvasCtx = canvas.getContext("2d");
+      }
+
+      function ensureVisualizerConnected() {
+        if (!canvasCtx) initVisualizer();
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (!sourceNode) {
+          try {
+            sourceNode = audioCtx.createMediaElementSource(audio);
+          } catch (e) {
+            // may throw if already connected; ignore
+            console.warn("source create failed", e);
+          }
+        }
+        if (!analyser) {
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 2048;
+          bufferLength = analyser.frequencyBinCount;
+          dataArray = new Uint8Array(bufferLength);
+        }
+        if (sourceNode && analyser) {
+          try {
+            sourceNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+          } catch (e) {
+            // Some browsers will throw if already connected; ignore
+          }
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+        startVisualizer();
+      }
+
+      function startVisualizer() {
+        if (!analyser || !canvasCtx) return;
+        cancelAnimationFrame(animationId);
+
+        function draw() {
+          animationId = requestAnimationFrame(draw);
+          analyser.getByteFrequencyData(dataArray);
+
+          const w = canvas.width = canvas.clientWidth * (window.devicePixelRatio || 1);
+          const h = canvas.height = canvas.clientHeight * (window.devicePixelRatio || 1);
+          canvasCtx.clearRect(0, 0, w, h);
+
+          const bars = 64;
+          const step = Math.floor(bufferLength / bars);
+          const barWidth = w / bars;
+
+          for (let i = 0; i < bars; i++) {
+            const value = dataArray[i * step] || 0;
+            const percent = value / 255;
+            const barHeight = percent * h;
+
+            const x = i * barWidth;
+            const y = h - barHeight;
+
+            const grad = canvasCtx.createLinearGradient(x, y, x, h);
+            grad.addColorStop(0, 'rgba(0,255,255,0.95)');
+            grad.addColorStop(0.5, 'rgba(0,180,255,0.65)');
+            grad.addColorStop(1, 'rgba(0,60,80,0.2)');
+
+            canvasCtx.fillStyle = grad;
+            canvasCtx.fillRect(x + 1, y, barWidth - 2, barHeight);
+          }
+        }
+
+        draw();
+      }
+
+      function stopVisualizer() {
+        if (animationId) cancelAnimationFrame(animationId);
+        animationId = null;
+        if (canvasCtx && canvas) {
+          canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
 
       // Handle system media keys
       if ("mediaSession" in navigator) {
@@ -421,6 +529,12 @@
         }
         trackTitle.textContent = item.name;
         nowPlaying.textContent = "Now playing";
+        // Ensure visualizer is connected before playing
+        try {
+          ensureVisualizerConnected();
+        } catch (e) {
+          console.warn('Visualizer init error', e);
+        }
         audio
           .play()
           .then(() => {
@@ -605,4 +719,3 @@
     </script>
   </body>
 </html>
-
