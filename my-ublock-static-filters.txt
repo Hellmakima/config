@@ -24,9 +24,9 @@ youtube.com##yt-reel-metapanel-view-model
 
 
 # quran scroll
-quran.com##+js(set-constant, window.scrollTo, noopFunc)
-quran.com##+js(set-constant, Element.prototype.scrollIntoView, noopFunc)
-quran.com##+js(set-constant, window.setInterval, noopFunc)
+!quran.com##+js(set-constant, window.scrollTo, noopFunc)
+!quran.com##+js(set-constant, Element.prototype.scrollIntoView, noopFunc)
+!quran.com##+js(set-constant, window.setInterval, noopFunc)
 
 ! 31 May 2025 https://www.instagram.com
 www.instagram.com##.x6bx242.x3hkoc4.x13vifvy.x1dr59a3
@@ -71,25 +71,43 @@ app.apollo.io##.zp_EFRzP.apolloio-css-vars-reset.zp.zp_GK6jX
 ! GPT
 # conv witdth
 chatgpt.com##.max-w-\(--thread-content-max-width\):style(max-width: none !important;)
+# chatgpt.com##div.flex.flex-col.text-sm.thread-xl\:pt-header-height.pb-25:style(padding-bottom: 0 !important;)
+# chatgpt.com###page-header > div.items-center.flex > .focus-visible\:outline-none.whitespace-nowrap.font-normal.focus-visible\:bg-token-surface-hover.hover\:bg-token-surface-hover.text-lg.px-2\.5.touch\:min-h-10.min-h-9.rounded-lg.gap-1.items-center.justify-center.cursor-pointer.flex.group
+# footer
+# chatgpt.com##.md\:px-\[60px\].\[view-transition-name\:var\(--vt-disclaimer\)\].text-xs.text-center.p-2.justify-center.items-center.w-full.min-h-8.flex.mt-auto.relative.text-token-text-secondary
 # limit hit
 chatgpt.com##.pt-2.gap-3\.5.flex-col.flex.mb-2
 # important to keep the page in view
 chatgpt.com##[scrollbar-gutter="stable both-edges"]:style(scrollbar-gutter: none !important;)
-# can make mistakes
-chatgpt.com##.md\:px-\[60px\].\[view-transition-name\:var\(--vt-disclaimer\)\].text-xs.text-center.p-2.justify-center.items-center.w-full.min-h-8.flex.mt-auto.relative.text-token-text-secondary > .pointer-events-auto
-# upgrade
-chatgpt.com##.dark\:hover\:bg-\[\#414071\].dark\:text-\[\#DCDBF6\].dark\:bg-\[\#373669\].hover\:bg-\[\#E4E4F6\].text-\[\#5D5BD0\].bg-\[\#F1F1FB\].pe-2.py-2.font-medium.text-sm.rounded-full.gap-1.items-center.inline-flex
-# model selector
-chatgpt.com###page-header > div.items-center.flex > .focus-visible\:outline-none.whitespace-nowrap.font-normal.focus-visible\:bg-token-surface-hover.hover\:bg-token-surface-hover.text-lg.px-2\.5.touch\:min-h-10.min-h-9.rounded-lg.gap-1.items-center.justify-center.cursor-pointer.flex.group
 # share
-chatgpt.com##.mx-2.text-token-text-primary.btn-ghost.relative.btn
+# chatgpt.com##.mx-2.text-token-text-primary.btn-ghost.relative.btn
+# user prompt width
+! chatgpt.com##*.max-w-\[var\(--user-chat-width\,70\%\)\]
 
 
 ! Remove max-width on Gemini chat container
 gemini.google.com/app##.conversation-container:style(max-width: none !important; width: 100% !important; margin: 0 !important;)
 
+! Oct 17, 2025 https://meet.google.com
+||lh3.googleusercontent.com/a/ACg8ocK5Il5RetTBsktbIAor_rvLWju5dKUN-8EleSpNWO9pZQggcn5s=s200-p-k-no-mo$image
+
+! Oct 24, 2025 https://chatgpt.com
+# chatgpt.com##.rtl\:translate-x-1\/2.ltr\:-translate-x-1\/2
+
+! Oct 25, 2025 https://chatgpt.com
+chatgpt.com##.md\:px-\[60px\].\[view-transition-name\:var\(--vt-disclaimer\)\].text-xs.text-center.p-2.justify-center.items-center.w-full.min-h-8.flex.mt-auto.relative.text-token-text-secondary > .pointer-events-auto
 
 ! Oct 25, 2025 https://dev.indooroutdoor.io
 dev.indooroutdoor.io##.dark\:text-slate-300.dark\:bg-slate-800.dark\:border-white.shadow-lg.text-slate-800.p-4.bg-white.border-slate-300.border.rounded-lg.items-center.flex-row.flex
 
+||https://moxnvwhuxobtszhwxmxs.supabase.co/storage/v1/object/public/Images%20For%20App/Adventures.png^
+||https://moxnvwhuxobtszhwxmxs.supabase.co/rest/v1/admin_pulse_deliveries^
+||https://moxnvwhuxobtszhwxmxs.supabase.co/rest/v1/daily_pulse_notes^
+
+! Nov 20, 2025 http://localhost:3000 CARLA
+localhost##.bg-white\/80.backdrop-blur-sm.overflow-y-auto.py-8.px-6.w-96.lg\:block.hidden
+localhost##.flex-shrink-0.py-2.px-3
+localhost##.md\:block.hidden.flex-shrink-0.py-4.px-3
+localhost##.pb-4.md\:pt-12.pt-20.md\:px-8.px-4.flex-shrink-0
+localhost##.flex-shrink-0.border-b.p-6
 
