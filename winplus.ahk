@@ -125,16 +125,12 @@
     if WinExist("ahk_exe powershell.exe") {
         WinActivate
     } else {
-        Run "powershell"
+        Run "powershell -NoLogo -WorkingDirectory ~"
     }
 }
 
 ; win shift t for terminal as admin
 #+t:: ; win + shift + t
 {
-    if WinExist("ahk_exe powershell.exe") {
-        WinActivate
-    } else {
-        Run '*RunAs powershell.exe'
-    }
+    Run '*RunAs powershell.exe'
 }
