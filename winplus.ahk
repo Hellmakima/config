@@ -1,12 +1,12 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 
 #SingleInstance
 
-#o::{
-    if WinExist("ahk_exe obs64.exe") {
+#e::{
+    if WinExist("ahk_exe FPilot.exe") {
         WinActivate
     } else {
-        Run "C:\Program Files\obs-studio\bin\64bit\obs64.exe"
+        Run "C:\Users\Sufiyan Attar\AppData\Local\Voidstar\FilePilot\FPilot.exe"
     }
 }
 
