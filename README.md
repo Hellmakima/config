@@ -1,3 +1,3 @@
 # config
 
-personal setup and configuration files
+personal config and setup files
