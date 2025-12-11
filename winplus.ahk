@@ -5,8 +5,10 @@
 #e::{
     if WinExist("ahk_exe FPilot.exe") {
         WinActivate
+        WinWaitActive("ahk_exe FPilot.exe", , 2)
     } else {
         Run "C:\Users\Sufiyan Attar\AppData\Local\Voidstar\FilePilot\FPilot.exe"
+        WinWaitActive("ahk_exe FPilot.exe", , 2)
     }
 }
 
@@ -16,16 +18,18 @@
 #s::
 {
     sublimePath := "C:\Program Files\Sublime Text\sublime_text.exe"
-    taskFile := "C:\Users\Sufiyan Attar\Desktop\task.md"
-    shell := ComObject("Shell.Application")
     selected := []
+    shell := ComObject("Shell.Application")
+    static flip := 0 ; 0 -> file1, 1 -> file2
+    taskFile1 := "C:\Users\Sufiyan Attar\Desktop\task.md"
+    taskFile2 := "C:\Users\Sufiyan Attar\Desktop\a.py"
+    sublime := "C:\Program Files\Sublime Text\sublime_text.exe"
 
-    ; if Sublime is active -> open task.md
+    ; if sublime active -> toggle
     if WinActive("ahk_exe sublime_text.exe") {
-        if FileExist(taskFile)
-            Run '"' sublimePath '" "' taskFile '"'
-        else
-            MsgBox "task.md not found."
+        file := flip ? taskFile1 : taskFile2
+        flip := !flip
+        Run '"' sublime '" "' file '"'
         return
     }
 
