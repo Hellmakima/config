@@ -1,5 +1,4 @@
 #Requires AutoHotkey v2.0
-
 #SingleInstance
 
 #e::{
@@ -12,8 +11,11 @@
     }
 }
 
-#Requires AutoHotkey v2.0
-#SingleInstance
+; minimize current window
+#d::WinMinimize "A"
+
+; close current window
+#w::WinKill "A"
 
 #s::
 {
@@ -21,7 +23,7 @@
     selected := []
     shell := ComObject("Shell.Application")
     static flip := 0 ; 0 -> file1, 1 -> file2
-    taskFile1 := "C:\Users\Sufiyan Attar\Desktop\task.md"
+    taskFile1 := "D:\back\task.md"
     taskFile2 := "C:\Users\Sufiyan Attar\Desktop\a.py"
     sublime := "C:\Program Files\Sublime Text\sublime_text.exe"
 
@@ -52,6 +54,9 @@
         } catch {
         }
     }
+
+    ; :( doen't work for file pilot
+
 
     if (selected.Length > 0) {
         for path in selected {
