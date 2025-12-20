@@ -12,10 +12,12 @@
 }
 
 ; minimize current window
-#d::WinMinimize "A"
+#m::WinMinimize "A"
 
 ; close current window
 #w::WinKill "A"
+
+#+w::Run '"C:\Program Files\Sublime Text\sublime_text.exe" "C:\Users\Sufiyan Attar\Documents\AutoHotkey\winplus.ahk"'
 
 #s::
 {
