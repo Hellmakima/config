@@ -17,7 +17,12 @@
 ; close current window
 #w::WinKill "A"
 
-#+w::Run '"C:\Program Files\Sublime Text\sublime_text.exe" "C:\Users\Sufiyan Attar\Documents\AutoHotkey\winplus.ahk"'
+#+s::Run '"C:\Program Files\Sublime Text\sublime_text.exe" "C:\Users\Sufiyan Attar\Documents\AutoHotkey\winplus.ahk"'
+
+#f::{
+    Click "800 500"
+    MouseMove 2000, 500
+}
 
 #s::
 {
