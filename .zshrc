@@ -115,6 +115,7 @@ cn() {
 
 # Activate conda env named after current directory
 ca() {
+  [[ -f ~/.envs ]] && source ~/.envs
   __conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
       eval "$__conda_setup"
@@ -133,7 +134,15 @@ ca() {
     return 1
   fi
 
-  conda activate "$name"
+  # conda activate "$name"
+  # Check if env exists BEFORE activating
+  if conda env list | awk '{print $1}' | grep -qx "$name"; then
+    conda activate "$name"
+  else
+    echo "No environment found"
+    conda deactivate
+    return 1
+  fi
 }
 
 # --- ZSH HISTORY
