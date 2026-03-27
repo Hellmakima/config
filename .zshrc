@@ -91,9 +91,6 @@ cn() {
   # Get current directory name
   local name="${PWD##*/}"
 
-  # Stop on first failure
-  set -e
-
   # Ensure conda is available in this shell
   if ! command -v conda &>/dev/null; then
     echo "conda not found. Make sure conda is initialized in zsh."
@@ -102,13 +99,13 @@ cn() {
 
   echo "Creating conda env: $name"
 
-  conda create -n "$name" python=3.10.12 -y
-  conda activate "$name"
+  conda create -n "$name" python=3.10.12 -y || return 1
+  conda activate "$name" || return 1
 
-  pip install poetry
+  pip install poetry || return 1
 
-  poetry lock
-  poetry install
+  # poetry lock || return 1
+  poetry install || return 1
 
   echo "Environment '$name' ready."
 }
@@ -170,6 +167,13 @@ fzf-history-widget() {
 
 zle -N fzf-history-widget
 bindkey '^R' fzf-history-widget
+
+: '
+^r # to use it normally, 
+history # to see all history
+fc -p # delete all history
+history -d <line_number> # delete specific line
+'
 
 # ---
 
