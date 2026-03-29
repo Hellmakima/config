@@ -33,6 +33,7 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 # Yazi editor
 export EDITOR="nvim"
 
+alias c='clear'
 alias cp='cp -i'
 alias d='yazi'
 alias gc='cd ~/.config'
@@ -42,14 +43,13 @@ alias l="eza -l --icons --group-directories-first"
 alias lg="lazygit"
 alias ll="eza -la --icons --group-directories-first"
 alias lq='lazysql'
-alias lt="eza --tree --icons"
+alias lt="eza --tree --icons --git-ignore"
 alias r='source ~/.zshrc'
 alias rm="trash" # to delete permanently, use \rm <file> # trash is MAC specific.
 alias sb='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
 alias ssh='TERM=xterm-256color ssh'
 alias t="tmux"
 alias v='nvim'
-alias y='yazi'
 
 # Completion
 ZSH_DISABLE_COMPFIX=true
