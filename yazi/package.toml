@@ -13,5 +13,10 @@ use = "XYenon/clipboard"
 rev = "3b96810"
 hash = "13d7eb15a079c735e34124b922322de5"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:zoom"
+rev = "1962818"
+hash = "fa268cb59989a87780605fdcfb8d99a9"
+
 [flavor]
 deps = []

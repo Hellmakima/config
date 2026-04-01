@@ -36,7 +36,6 @@ export EDITOR="nvim"
 alias c='clear'
 alias cp='cp -i'
 alias d='yazi'
-alias dm='yazi sftp://moto'
 alias gc='cd ~/.config'
 alias gd='cd ~/Downloads'
 alias gh='cd ~'
