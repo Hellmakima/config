@@ -3,6 +3,13 @@
 - **uBlock Origin**
   _Ad blocker to improve page speed and privacy._
 
+- **Privacy Badger**
+- **Return YouTube Dislikes**
+- **Vimium**
+  _Add-on for Chrome that provides keyboard shortcuts for YouTube._
+
+- 
+
 - **Unhook – Remove YouTube Recommended & Shorts**
   _Removes distractions from YouTube (like home feed, shorts, comments, etc.)._
 
@@ -25,14 +32,15 @@
 | Shortcut | Description                               | URL Format                                                           |
 | -------- | ----------------------------------------- | -------------------------------------------------------------------- |
 | `d`      | Google Drive Search                       | `https://drive.google.com/drive/u/0/search?q=%s`                     |
-| `gugu`   | Google Search (Default search engine)     | `{google:baseURL}search?q=%s`                                        |
+| `gugu`   | Google Search (remove excess data)        | `{google:baseURL}search?q=%s`                                        |
 | `yt`     | YouTube Search                            | `https://www.youtube.com/results?search_query=%s`                    |
 | `r`      | Reddit Search via Google                  | `https://www.google.com/search?q=reddit+%s`                          |
 | `tr`     | Google Translate (auto-detect to English) | `https://translate.google.co.in/?sl=auto&tl=en&text=%s&op=translate` |
 | `s`      | Edge Settings (Search Engines)            | `edge://settings/searchEngines?search=%s`                            |
 | `q`      | Quran.com (Jump to specific verse)        | `https://quran.com/4?startingVerse=%s`                               |
 | `map`    | Google Maps Place Search                  | `https://www.google.com/maps/place/%s`                               |
-| `i`      | Google Search (Udm=2 – modern layout)     | `https://www.google.com/search?&udm=2&q=%s`                          |
+| `qi`     | Google Image Search                       | `https://www.google.com/search?&udm=2&q=%s`                          |
+| `i`      | DuckDuckGo Image Search                   | `https://duckduckgo.com/?t=ffab&q=%s&ia=images&iax=images`           |
 
 ---
 
