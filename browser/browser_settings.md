@@ -8,7 +8,8 @@
 - **Vimium**
   _Add-on for Chrome that provides keyboard shortcuts for YouTube._
 
-- 
+- **TestCase Studio**
+  _Records envents and gives x-paths (easy to automate)._
 
 - **Unhook – Remove YouTube Recommended & Shorts**
   _Removes distractions from YouTube (like home feed, shorts, comments, etc.)._
