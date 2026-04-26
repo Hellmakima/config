@@ -1,0 +1,61 @@
+/* Tokyo Night palette */
+:root {
+  --tn-bg: #1a1b26;
+  --tn-surface: #1f2335;
+  --tn-fg: #c0caf5;
+  --tn-muted: #9aa5ce;
+  --tn-border: #2a2f4a;
+
+  --tn-blue: #7aa2f7;
+  --tn-cyan: #7dcfff;
+  --tn-green: #9ece6a;
+  --tn-yellow: #e0af68;
+  --tn-red: #f7768e;
+  --tn-magenta: #bb9af7;
+  --tn-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Only affect elements that already have a background */
+body, [style*="background"], [class*="bg"], [class*="background"] {
+  background-color: var(--tn-bg) !important;
+  color: var(--tn-fg) !important;
+}
+
+/* Text color (safe override) */
+body, p, span, div, li, td, th {
+  color: var(--tn-fg) !important;
+  font-family: var(--tn-font-mono) !important;
+}
+
+/* Muted / secondary text */
+small, label, ::placeholder {
+  color: var(--tn-muted) !important;
+}
+
+/* Links */
+a {
+  color: var(--tn-blue) !important;
+}
+a:hover {
+  color: var(--tn-cyan) !important;
+}
+a:visited {
+  /*color: var(--tn-magenta) !important;*/
+}
+
+/* Borders only (no layout changes) */
+* {
+  border-color: var(--tn-border) !important;
+}
+
+/* Inputs */
+input, textarea, select {
+  background-color: var(--tn-surface) !important;
+  color: var(--tn-fg) !important;
+}
+
+/* Selection */
+::selection {
+  background: var(--tn-blue);
+  color: var(--tn-bg);
+}

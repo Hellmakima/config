@@ -17,6 +17,9 @@
 - **Custom New Tab**
   _Opens a specific URL whenever you open a new tab._
 
+- **[Stylus](https://uso.kkx.one/browse/styles?search=tokyo%20night)** 
+  _Custom CSS frow browser wide sites_
+
 ### Work related
 
 - **Urban VPN**
