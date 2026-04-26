@@ -12,7 +12,6 @@
   --tn-yellow: #e0af68;
   --tn-red: #f7768e;
   --tn-magenta: #bb9af7;
-  --tn-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 /* Only affect elements that already have a background */
@@ -24,7 +23,6 @@ body, [style*="background"], [class*="bg"], [class*="background"] {
 /* Text color (safe override) */
 body, p, span, div, li, td, th {
   color: var(--tn-fg) !important;
-  font-family: var(--tn-font-mono) !important;
 }
 
 /* Muted / secondary text */

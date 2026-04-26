@@ -1,0 +1,9 @@
+/* Monospace font */
+:root {
+  --tn-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Text color (safe override) */
+body, p, span, div, li, td, th {
+  font-family: var(--tn-font-mono) !important;
+}
