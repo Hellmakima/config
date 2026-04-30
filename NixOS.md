@@ -67,5 +67,6 @@ put in new credentials
 
 ## updates
 
-`sudo nixos-rebuild switch`
 on any changes to config file (install, remove, etc)
+`sudo nixos-rebuild switch`
+`reboot`

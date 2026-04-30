@@ -35,14 +35,8 @@
   # };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  services.xserver = {
-    enable = true;
-    windowManager.qtile.enable = true;
-  };
-
-
-  
+  services.xserver.enable = false;
+  systemd.defaultUnit = "multi-user.target";
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -62,6 +56,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  services.tailscale.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alice = {
     isNormalUser = true;
@@ -71,16 +67,37 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    alacritty
+    bat
+    btop
+    eza
+    fzf
+    git
     neovim
+    starship
+    tailscale
+    uv
+    vivid
+    wget
+    yazi
+    zoxide
   ];
+
+  # Apps installed for yazi
+  # - imagemagick → image processing (used by previews)
+  # - chafa → render images in terminal
+  # - poppler → PDF previews
+  # - ripgrep → fast search (used internally by tools)
+  # - fzf → fuzzy finder (often pulled indirectly)
+
+  # Shell
+  programs.zsh.enable = true;
+  users.users.alice.shell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
