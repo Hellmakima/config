@@ -4,8 +4,10 @@
   _Ad blocker to improve page speed and privacy._
 
 - **Privacy Badger**
+
 - **Return YouTube Dislikes**
-- **Vimium**
+
+- **Vimium** (Settings file included `vimium-options.json`)
   _Add-on for Chrome that provides keyboard shortcuts for YouTube._
 
 - **TestCase Studio**
@@ -17,8 +19,10 @@
 - **Custom New Tab**
   _Opens a specific URL whenever you open a new tab._
 
-- **[Stylus](https://uso.kkx.one/browse/styles?search=tokyo%20night)** 
+- **[Stylus](https://uso.kkx.one/browse/styles?search=tokyo%20night)**
   _Custom CSS frow browser wide sites_
+
+
 
 ### Work related
 
@@ -37,13 +41,13 @@
 | -------- | ----------------------------------------- | -------------------------------------------------------------------- |
 | `d`      | Google Drive Search                       | `https://drive.google.com/drive/u/0/search?q=%s`                     |
 | `gugu`   | Google Search (remove excess data)        | `{google:baseURL}search?q=%s`                                        |
-| `yt`     | YouTube Search                            | `https://www.youtube.com/results?search_query=%s`                    |
+| `y`     | YouTube Search                            | `https://www.youtube.com/results?search_query=%s`                    |
 | `r`      | Reddit Search via Google                  | `https://www.google.com/search?q=reddit+%s`                          |
 | `tr`     | Google Translate (auto-detect to English) | `https://translate.google.co.in/?sl=auto&tl=en&text=%s&op=translate` |
 | `s`      | Edge Settings (Search Engines)            | `edge://settings/searchEngines?search=%s`                            |
 | `q`      | Quran.com (Jump to specific verse)        | `https://quran.com/4?startingVerse=%s`                               |
 | `map`    | Google Maps Place Search                  | `https://www.google.com/maps/place/%s`                               |
-| `qi`     | Google Image Search                       | `https://www.google.com/search?&udm=2&q=%s`                          |
+| `gi`     | Google Image Search                       | `https://www.google.com/search?&udm=2&q=%s`                          |
 | `i`      | DuckDuckGo Image Search                   | `https://duckduckgo.com/?t=ffab&q=%s&ia=images&iax=images`           |
 
 ---
