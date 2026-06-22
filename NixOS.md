@@ -70,3 +70,15 @@ put in new credentials
 on any changes to config file (install, remove, etc)
 `sudo nixos-rebuild switch`
 `reboot`
+
+## Rollbacks
+_You can simply go to prev version temporarily from the bootloader_
+- list versions
+`nixos-rebuild list-generations`
+- rollback to specific gen
+```sh
+sudo nix-env --profile /nix/var/nix/profiles/system --switch-generation 5 # replace `5` with gen no
+sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+```
+and reboot if u feel like it
+
