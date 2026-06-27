@@ -1,7 +1,7 @@
 tap "davidbudnick/tap"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
-tap "valkyrie00/bbrew"
+tap "valkyrie00/bbrew", "https://github.com/Valkyrie00/homebrew-bbrew"
 # Automatic configure script builder
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -26,6 +26,8 @@ brew "ffmpeg"
 brew "fzf"
 # Replace zsh completion selection menu with fzf
 brew "fzf-tab"
+# GitHub command-line tool
+brew "gh"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Convert images to PDF via direct JPEG inclusion
@@ -125,8 +127,6 @@ cask "utm"
 cask "vlc"
 # Multiplayer code editor
 cask "zed"
-# Gecko based web browser
-cask "zen"
 vscode "astral-sh.ty"
 vscode "blodwynn.featurehighlight"
 vscode "bradlc.vscode-tailwindcss"
