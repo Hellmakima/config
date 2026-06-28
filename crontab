@@ -1,0 +1,2 @@
+# */4 * * * * osascript -e 'display notification "Allahuakbar" with title "Takbeer"'
+# * * * * * /Applications/MAMP/bin/php/php8.3.30/bin/php /Applications/MAMP/htdocs/moodle/admin/cli/cron.php> /dev/null
